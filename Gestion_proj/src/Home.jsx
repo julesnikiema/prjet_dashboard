@@ -1,7 +1,11 @@
 import React from 'react'
 import 
-{ BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
+{ BsFillClipboard2DataFill , BsPeopleFill, }
  from 'react-icons/bs'
+ import {MdEngineering} from 'react-icons/md'
+ import {AiFillFolderOpen} from 'react-icons/ai'
+
+ 
  import 
  { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
@@ -57,37 +61,37 @@ function Home() {
   return (
     <main className='main-container'>
         <div className='main-title'>
-            <h3>DASHBOARD</h3>
+            <h3>Tableau de Bord</h3>
         </div>
 
         <div className='main-cards'>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>PRODUCTS</h3>
-                    <BsFillArchiveFill className='card_icon'/>
+                    <h3>Projets en cours </h3>
+                    <BsFillClipboard2DataFill className='card_icon'/>
                 </div>
-                <h1>300</h1>
+                <h1>5</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>CATEGORIES</h3>
-                    <BsFillGrid3X3GapFill className='card_icon'/>
+                    <h3>  Documents </h3>
+                    <AiFillFolderOpen className='card_icon'/>
                 </div>
-                <h1>12</h1>
+                <h1> 20 </h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>CUSTOMERS</h3>
+                    <h3>Clients</h3>
                     <BsPeopleFill className='card_icon'/>
                 </div>
-                <h1>33</h1>
+                <h1>24</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>ALERTS</h3>
-                    <BsFillBellFill className='card_icon'/>
+                    <h3>  Equipe ANPTIC </h3>
+                    <MdEngineering className='card_icon'/>
                 </div>
-                <h1>42</h1>
+                <h1> </h1>
             </div>
         </div>
 

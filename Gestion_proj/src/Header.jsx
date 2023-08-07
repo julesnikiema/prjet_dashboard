@@ -1,6 +1,6 @@
 import React from 'react'
 import 
- {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
+ {BsFillBellFill, BsPersonCircle, BsSearch, BsJustify}
  from 'react-icons/bs'
 
 function Header({OpenSidebar}) {
@@ -14,7 +14,6 @@ function Header({OpenSidebar}) {
         </div>
         <div className='header-right'>
             <BsFillBellFill className='icon'/>
-            <BsFillEnvelopeFill className='icon'/>
             <BsPersonCircle className='icon'/>
         </div>
     </header>
