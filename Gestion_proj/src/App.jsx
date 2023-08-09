@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+import SingIn from './pages/auth/SignIn'
+import SingUp from './pages/auth/SingUp'
+import AuthDetails from './pages/AuthdDetails'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Home from './Home'
