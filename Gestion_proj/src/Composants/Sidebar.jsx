@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import logoanptic from './assets/logoanptic.png'
+import logoanptic from '../assets/logoanptic.png'
 import 
 { BsGrid1X2Fill, BsFillCollectionFill, BsFillGrid3X3GapFill, BsPeopleFill, 
     BsPersonCircle, BsUnlockFill, BsFillGearFill}
