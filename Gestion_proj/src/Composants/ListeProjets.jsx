@@ -1,3 +1,4 @@
+import React from 'react'
 import 
 { BsFillClipboard2DataFill , BsPeopleFill, }
  from 'react-icons/bs'
@@ -6,7 +7,7 @@ import
 
  
  import 
- { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
+ { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
 
 function Home() {
@@ -60,13 +61,13 @@ function Home() {
   return (
     <main className='main-container'>
         <div className='main-title'>
-            <h3>Tableau de Bord</h3>
+            <h3>Liste des projets </h3>
         </div>
 
         <div className='main-cards'>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>Projets en cours </h3>
+                    <h3>Pours </h3>
                     <BsFillClipboard2DataFill className='card_icon'/>
                 </div>
                 <h1>5</h1>

@@ -1,9 +1,14 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+
+import  { useState } from "react";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom"; // Importer useNavigate
+import {BsPersonCircle} from 'react-icons/bs'
+
 
 const SignIn = () => {
+  const [error, setError] = useState(false);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Initialiser useNavigate
@@ -23,24 +28,33 @@ const SignIn = () => {
   };
 
   return (
-    <div className="sign-in-container">
+    <div className="form-wrapper" >
+      <div className="sign-in-container">
+
       <form onSubmit={signIn}>
-        <h1>Log In to your Account</h1>
+        <h1> Connectez - vous </h1>
+
+<BsPersonCircle className="icon" style={{ fontSize: '90px' }} />
+
         <input
           type="email"
-          placeholder="Enter your email"
+          placeholder="Entez votre  email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
         <input
           type="password"
-          placeholder="Enter your password"
+          placeholder="Entez votre mot de passe "
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button type="submit">Log In</button>
+        <button type="submit">se connecter </button>
+        {error && <span>Wrong email or password!</span>}
       </form>
     </div>
+
+    </div>
+    
   );
 };
 

@@ -20,6 +20,11 @@ import Home from './pages/Home'
 import SignUp from './pages/auth/SignUp'
 import SignIn from "./pages/auth/SignIn";
 import ErrorPage from "./pages/ErrorPage";
+import Parametres from "./pages/Parametres";
+import Compte from './pages/Compte';
+import Utilisateurs from './pages/utilisateurs/Utilisateurs';
+import Projets from './pages/projets/Projets';
+
 
 // Composant de gardien de route pour les routes protégées
 const AuthenticatedRoute = ({ element: Component, ...props }) => {
@@ -70,7 +75,7 @@ L'itinéraire configuré avec le chemin "*" (tous les chemins qui n'ont pas ét�
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <AuthenticatedRoute element={DashBoard} />,
+    element: < DashBoard />,
     children: [
       {
         path: "/",
@@ -89,9 +94,27 @@ const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
+    path: "/projets",
+    element: < Projets />,
+  },
+  {
+    path: "/Utilisateurs",
+    element: <Utilisateurs />,
+  },
+  {
+    path: "/Compte",
+    element: <Compte />,
+  },
+  {
+    path: "/parametre",
+    element: <Parametres />,
+  },
+  {
     path: "*",
     element: <ErrorPage />,
   },
+  
+ 
 ]);
 
 function App() {
