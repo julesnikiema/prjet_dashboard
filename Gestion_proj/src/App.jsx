@@ -24,23 +24,14 @@ import Parametres from "./pages/Parametres";
 import Compte from './pages/Compte';
 import Utilisateurs from './pages/utilisateurs/Utilisateurs';
 import Projets from './pages/projets/Projets';
+import New from "./pages/new/New";
 
 
 // Composant de gardien de route pour les routes protégées
-const AuthenticatedRoute = ({ element: Component, ...props }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
-      setIsAuthenticated(!!user);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  return isAuthenticated ? <Route {...props} element={<Component />} /> : <Navigate to="/login" />;
+const currntUser = false;
+const RequireAuth = ({children})=> {
+  return currentUser ? children : <Navigate to ="/login" />
 };
-
 
  /*
 Définition du composant DashBoard :
@@ -73,6 +64,10 @@ Ensuite, il y a des itinéraires configurés pour "/login" et "/register", assoc
 L'itinéraire configuré avec le chemin "*" (tous les chemins qui n'ont pas été correspondants jusqu'à présent) est associé au composant ErrorPage.. */
 
 const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <SignIn />,
+  },
   {
     path: "/",
     element: < DashBoard />,
@@ -109,6 +104,11 @@ const router = createBrowserRouter([
     path: "/parametre",
     element: <Parametres />,
   },
+  {
+    path: "/new",
+    element: <New />
+  },
+  
   {
     path: "*",
     element: <ErrorPage />,
