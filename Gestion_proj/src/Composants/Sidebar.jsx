@@ -26,8 +26,8 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="/projets">
-                    <BsFillCollectionFill className='icon'/> Projets
+                <a href="/addprojets">
+                    <BsFillCollectionFill className='icon'/> Ajouter un Projet
                 </a>
             </li>
             <li className='sidebar-list-item'>

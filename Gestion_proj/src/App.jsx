@@ -23,8 +23,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Parametres from "./pages/Parametres";
 import Compte from './pages/Compte';
 import Utilisateurs from './pages/utilisateurs/Utilisateurs';
-import Projets from './pages/projets/Projets';
-import New from "./pages/new/New";
+import AjoutProjets from './pages/projets/AjoutProjets';
 
 
 // Composant de gardien de route pour les routes protégées
@@ -89,8 +88,8 @@ const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/projets",
-    element: < Projets />,
+    path: "/addprojets",
+    element: < AjoutProjets />,
   },
   {
     path: "/Utilisateurs",
@@ -104,11 +103,7 @@ const router = createBrowserRouter([
     path: "/parametre",
     element: <Parametres />,
   },
-  {
-    path: "/new",
-    element: <New />
-  },
-  
+ 
   {
     path: "*",
     element: <ErrorPage />,
