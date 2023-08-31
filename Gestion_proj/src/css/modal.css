@@ -20,7 +20,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    align-content: space-between;
+    align-items: space-between; /* Correction ici */
     box-sizing: border-box;
   }
   
@@ -41,4 +41,30 @@
   
   .modal__close:hover{
     color: hsl(0, 70%, 70%);
+  }
+  
+  .modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .modal__form input,
+  .modal__form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modal__form button {
+    padding: 10px;
+    background-color: hsl(210, 12%, 15%);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal__form button:hover {
+    background-color: hsl(210, 12%, 25%);
   }

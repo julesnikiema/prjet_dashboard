@@ -1,16 +1,8 @@
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-  Navigate 
-} from "react-router-dom";
+import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import { useState } from 'react'
-import { auth } from "./firebase";
-import { useEffect } from 'react';
-import { onAuthStateChanged } from "firebase/auth"; // impo onAuthStateChanged est correctement importé
-
+// import { auth } from "./firebase";
+// import { useEffect } from 'react';
+// import { onAuthStateChanged } from "firebase/auth"; // impo onAuthStateChanged est correctement importé
 
 
 import './css/App.css'
@@ -23,14 +15,14 @@ import ErrorPage from "./pages/ErrorPage";
 import Parametres from "./pages/Parametres";
 import Compte from './pages/Compte';
 import Utilisateurs from './pages/utilisateurs/Utilisateurs';
-import AjoutProjets from './pages/projets/AjoutProjets';
+import AddTask from "./pages/projets/AddTask";
 
 
 // Composant de gardien de route pour les routes protégées
-const currntUser = false;
-const RequireAuth = ({children})=> {
-  return currentUser ? children : <Navigate to ="/login" />
-};
+// const currntUser = false;
+// const RequireAuth = ({children})=> {
+//   return currentUser ? children : <Navigate to ="/login" />
+// };
 
  /*
 Définition du composant DashBoard :
@@ -89,7 +81,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/addprojets",
-    element: < AjoutProjets />,
+    element: <AddTask />,
   },
   {
     path: "/Utilisateurs",
