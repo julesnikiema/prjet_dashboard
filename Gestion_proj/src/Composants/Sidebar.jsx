@@ -1,4 +1,6 @@
 import logoanptic from '../assets/logoanptic.png'
+import PropTypes from 'prop-types';
+
 import 
 { BsGrid1X2Fill, BsFillCollectionFill, BsPeopleFill, 
     BsPersonCircle, BsUnlockFill, BsFillGearFill}
@@ -23,7 +25,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="/addprojets">
+                <a href="/taskmanager">
                     <BsFillCollectionFill className='icon'/> Ajouter un Projet
                 </a>
             </li>
@@ -55,5 +57,8 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
     
   )
 }
-
+Sidebar.propTypes = {
+    openSidebarToggle: PropTypes.bool.isRequired, // Ajoutez cette ligne pour valider la prop
+    OpenSidebar: PropTypes.func.isRequired,
+  };
 export default Sidebar

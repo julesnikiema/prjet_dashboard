@@ -28,7 +28,7 @@ function EditTask({open, onClose, toEditTitle, toEditDescription, id}) {
     }
   
     return (
-      <Modal modalLable='Edit Task' onClose={onClose} open={open}>
+      <Modal modalLabel='Edit Task' onClose={onClose} open={open}>
         <form onSubmit={handleUpdate} className='editTask'>
           <input type='text' name='title' onChange={(e) => setTitle(e.target.value.toUpperCase())} value={title}/>
           <textarea onChange={(e) => setDescription(e.target.value)} value={description}></textarea>
@@ -39,9 +39,10 @@ function EditTask({open, onClose, toEditTitle, toEditDescription, id}) {
   }
   // Définissez les propTypes pour valider les props
   EditTask.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
+    onClose: PropTypes.func.isRequired,
+    open: PropTypes.bool.isRequired,
+    toEditTitle: PropTypes.string.isRequired, // Ajoutez cette ligne
+    toEditDescription: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  };
   export default EditTask

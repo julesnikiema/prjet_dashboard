@@ -15,7 +15,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Parametres from "./pages/Parametres";
 import Compte from './pages/Compte';
 import Utilisateurs from './pages/utilisateurs/Utilisateurs';
-import AddTask from "./pages/projets/AddTask";
+import TaskManager from "./pages/projets/TaskManager";
 
 
 // Composant de gardien de route pour les routes protégées
@@ -80,8 +80,8 @@ const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/addprojets",
-    element: <AddTask />,
+    path: "/taskmanager",
+    element: <TaskManager />,
   },
   {
     path: "/Utilisateurs",
