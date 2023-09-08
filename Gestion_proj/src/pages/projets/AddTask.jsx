@@ -1,8 +1,6 @@
 import {db} from '../../firebase'
 import { collection , addDoc , Timestamp } from 'firebase/firestore'
 import {useState} from 'react'
-import Header from '../../Composants/Header'
-import Sidebar from '../../Composants/Sidebar'
 import Modal from './Modal'; 
 
 
@@ -39,8 +37,8 @@ const closeModal = () => {
   return (
 
     <div className='grid-container' >
-<Header/>
-<Sidebar />    
+{/* <Header/>
+<Sidebar />     */}
     {/* Utilisation du modal */}
   
     <form onSubmit={handleSubmit} className='modal__form' name='addTask'>

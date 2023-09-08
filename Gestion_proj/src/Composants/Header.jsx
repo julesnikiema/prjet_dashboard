@@ -1,9 +1,12 @@
 import React from 'react'
+import  { useState } from 'react';
+
 import 
  {BsFillBellFill, BsPersonCircle, BsSearch, BsJustify}
  from 'react-icons/bs'
 
 function Header({OpenSidebar}) {
+  
   return (
     <header className='header'>
         <div className='menu-icon'>

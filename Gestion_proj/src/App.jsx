@@ -16,6 +16,8 @@ import Parametres from "./pages/Parametres";
 import Compte from './pages/Compte';
 import Utilisateurs from './pages/utilisateurs/Utilisateurs';
 import TaskManager from "./pages/projets/TaskManager";
+import Task from "./pages/projets/Task";
+import TaskItem from "./pages/projets/TaskItem";
 
 
 // Composant de gardien de route pour les routes protégées
@@ -69,11 +71,18 @@ const router = createBrowserRouter([
       },
     ],
   },
- 
-
+  
+  // {
+  //   path: "/tasks",
+  //   element: <Task />,
+  // },
+  {
+    path: "/tasks",
+    element: <TaskItem />,
+  },
   {
     path: "/login",
-    element: <SignIn />,
+    element: <SignIn  />,
   },
   {
     path: "/register",
@@ -105,7 +114,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  
+
     return (
       <div className="app">
         <RouterProvider router={router} />

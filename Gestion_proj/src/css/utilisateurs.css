@@ -1,0 +1,53 @@
+/* UserList.css */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1fr; /* Ajustez la proportion selon vos besoins */
+  grid-template-areas:
+    'sidebar header header header'
+    'sidebar main main main';
+  height: 100vh;
+}
+
+.table-container {
+  grid-area: main; /* Pour occuper la zone "main" du grid-container */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement */
+  border-collapse: collapse;
+  width: auto; /* Ajustez la largeur comme vous le souhaitez */
+  margin: 0 auto; /* Pour centrer le tableau horizontalement */
+}
+
+h2.titre-user {
+  margin-top: 20px; /* Espace entre le titre et le tableau */
+}
+
+
+
+/* Styles pour le tableau (th, td, etc.) */
+table {
+  
+  grid-area: main; /* Pour occuper la zone "main" du grid-container */
+}
+
+th, td {
+
+  width: 100px; /* Ajustez la largeur comme vous le souhaitez */
+  padding: 50px;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #ecd5d5;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #0ac4f3;
+}
+
+tr{
+  background-color: #ade6f5;
+}
