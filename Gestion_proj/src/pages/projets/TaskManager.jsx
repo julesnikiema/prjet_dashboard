@@ -1,13 +1,17 @@
-import { useState , useEffect } from 'react'
+import { useState  } from 'react'
 import { db } from '../../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Header from '../../Composants/Header'
 import Sidebar from '../../Composants/Sidebar'
-
+import { useNavigate } from 'react-router-dom';
 
 
 
   function   TaskManager(){
+  
+    const navigate = useNavigate();
+
+
     const [task, setTask] = useState({
       client: '',
       nomProjet: '',
@@ -35,6 +39,10 @@ import Sidebar from '../../Composants/Sidebar'
         });
         console.log('Tâche ajoutée avec l\'ID : ', docRef.id);
         // Réinitialisez les champs du formulaire si nécessaire.
+
+      
+        navigate('/tasks'); // Utilisez la fonction navigate pour effectuer la redirection.
+
       } catch (error) {
         console.error('Erreur lors de l\'ajout de la tâche : ', error);
       }
@@ -64,6 +72,8 @@ import Sidebar from '../../Composants/Sidebar'
       value={task.client}
       onChange={handleChange}
     />
+    </div>
+  <div className="form-group">
 
     <label>Nom du projet :</label>
     <input
@@ -71,19 +81,24 @@ import Sidebar from '../../Composants/Sidebar'
       name="nomProjet"
       placeholder="Nom du projet"
       value={task.nomProjet}
+      onChange={handleChange} // Ajoutez cet événement onChange
+
       
     />
   </div>
   <div className="form-group">
-    <label>Description :</label>
-    <input
-      type="text"
-      name="description"
-      placeholder="Description"
-      value={task.description}
-      onChange={handleChange}
-    />
-  </div>
+  <label>Description :</label>
+  <textarea
+    name="description"
+    placeholder="Description"
+    value={task.description}
+    onChange={handleChange}
+    rows={4} // Vous pouvez ajuster le nombre de lignes en fonction de vos besoins
+    cols={50} // Vous pouvez ajuster le nombre de colonnes en fonction de vos besoins
+    maxLength={500} // Limitez le nombre maximal de caractères à 500
+  />
+</div>
+
   <div className="form-group">
     <label>Service attribué :</label>
     <select
@@ -92,42 +107,47 @@ import Sidebar from '../../Composants/Sidebar'
       onChange={handleChange}
     >
       <option value="">Sélectionnez un service</option>
-      <option value="Service A">DSA </option>
-      <option value="Service B">DIG</option>
-      {/* Ajoutez d'autres options selon vos besoins */}
+      <option value="CAT">CAT </option>
+      <option value="DCM">DCM</option>
+      <option value="DEI">DEI </option>
+      <option value="DEST">DEST</option>
+      <option value="DFPTIC"> DFPTIC </option>
+      <option value="DFC">DFC </option>
+      <option value="DIG">DIG</option>
+      <option value="DSA">DSA </option>
+      <option value="DRH">DRH</option>
+      <option value="PRM">DIG</option>
+      <option value="SCMRP">SCMRP </option>
+    
     </select>
   </div>
   <div className="form-group">
     <label>État :</label>
-    <input
-      type="text"
-      name="etat"
-      placeholder="État"
-      value={task.etat}
+    <select
+      name="serviceAttribue"
+      value={task.serviceAttribue}
       onChange={handleChange}
-    />
+    >
+    <option value="">Sélectionnez un etat </option>
+      <option value="A">A</option>
+    </select>
+    
   </div>
   <div className="button-container">
     <button type="submit">Ajouter la tâche</button>
   </div>
 </form>
         <div>
-          <h2>Mettre à jour l'état</h2>
+          <h2>Mettre à jour L état</h2>
           <button onClick={() => handleUpdateEtat('A')}>A</button>
           <button onClick={() => handleUpdateEtat('B')}>B</button>
           <button onClick={() => handleUpdateEtat('C')}>C</button>
-          {/* Ajoutez d'autres boutons pour d'autres états au besoin */}
         </div>
       </div>
       </div>
       </div>
-
     );
   }
   
   export default  TaskManager;
   
-
-
-
-

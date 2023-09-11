@@ -1,98 +1,71 @@
-import React, { useState, useEffect } from 'react';
+// TaskItem.js
+import  { useState, useEffect } from 'react';
 import { db } from '../../firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, } from 'firebase/firestore';
+import EditTask from '../../Composants/EditTask';
+
 
 function TaskItem() {
   const [tasks, setTasks] = useState([]);
+  const [editingTask, setEditingTask] = useState(null);
 
   useEffect(() => {
-    // Function to fetch tasks from Firestore
     const fetchTasks = async () => {
-      const taskCollection = collection(db, 'tasks');
-      const querySnapshot = await getDocs(taskCollection);
+      try {
+        const taskCollection = collection(db, 'tasks');
+        const querySnapshot = await getDocs(taskCollection);
 
-      const taskData = [];
-      querySnapshot.forEach((doc) => {
-        // Extract the document data and check if dateEnregistrement exists
-        const taskItemData = doc.data();
-        const taskItem = {
-          id: doc.id,
-          client: taskItemData.client || '',
-          nomProjet: taskItemData.nomProjet || '',
-          description: taskItemData.description || '',
-          serviceAttribue: taskItemData.serviceAttribue || '',
-          etat: taskItemData.etat || '',
-          dateEnregistrement: taskItemData.dateEnregistrement
-            ? taskItemData.dateEnregistrement.toDate()
-            : null,
-        };
-        taskData.push(taskItem);
-      });
+        const taskData = [];
+        querySnapshot.forEach((doc) => {
+          const taskItemData = doc.data();
+          const taskItem = {
+            id: doc.id,
+            ...taskItemData,
+            dateEnregistrement: taskItemData.dateEnregistrement
+              ? taskItemData.dateEnregistrement.toDate()
+              : null,
+          };
+          taskData.push(taskItem);
+        });
 
-      setTasks(taskData);
+        setTasks(taskData);
+      } catch (error) {
+        console.error('Erreur lors de la récupération des tâches : ', error);
+      }
     };
 
     fetchTasks();
   }, []);
 
+  const handleEditClick = (taskToEdit) => {
+    setEditingTask(taskToEdit);
+  };
+
+  const handleUpdate = (updatedTask) => {
+    setEditingTask(null);
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+    );
+  };
+
   return (
     <div>
       <h2>Liste des tâches</h2>
-      <form>
-        {tasks.map((task) => (
-          <fieldset key={task.id}>
-            <legend>Tâche {task.id}</legend>
-            <label>
-              Client:
-              <input
-                type="text"
-                value={task.client}
-                readOnly
-              />
-            </label>
-            <label>
-              Nom du projet:
-              <input
-                type="text"
-                value={task.nomProjet}
-                readOnly
-              />
-            </label>
-            <label>
-              Description:
-              <input
-                type="text"
-                value={task.description}
-                readOnly
-              />
-            </label>
-            <label>
-              Service attribué:
-              <input
-                type="text"
-                value={task.serviceAttribue}
-                readOnly
-              />
-            </label>
-            <label>
-              État:
-              <input
-                type="text"
-                value={task.etat}
-                readOnly
-              />
-            </label>
-            <label>
-              Date de création:
-              <input
-                type="text"
-                value={task.dateEnregistrement ? task.dateEnregistrement.toString() : ''}
-                readOnly
-              />
-            </label>
-          </fieldset>
-        ))}
-      </form>
+      {tasks.map((task) => (
+        <div key={task.id}>
+          <h3>Tâche {task.id}</h3>
+          <p>Client: {task.client}</p>
+          <p>Nom du projet: {task.nomProjet}</p>
+          <p>Description: {task.description}</p>
+          <p>Service attribué: {task.serviceAttribue}</p>
+          <p>État: {task.etat}</p>
+          <p>Date de création: {task.dateEnregistrement?.toString()}</p>
+          <button onClick={() => handleEditClick(task)}>Modifier</button>
+        </div>
+      ))}
+      {editingTask && (
+        <EditTask task={editingTask} onUpdate={handleUpdate} />
+      )}
     </div>
   );
 }

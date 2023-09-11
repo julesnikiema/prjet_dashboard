@@ -44,11 +44,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                     <BsPersonCircle className='icon'/> Compte
                 </a>
             </li>
-            <li className='sidebar-list-item'>
-                <a href="">
-                    <BsUnlockFill className='icon'/> Se deconnecter
-                </a>
-            </li>
+            
             <li className='sidebar-list-item'>
                 <a href="/parametre">
                     <BsFillGearFill className='icon'/> Parametres
@@ -63,7 +59,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
   )
 }
 Sidebar.propTypes = {
-    openSidebarToggle: PropTypes.bool.isRequired, // Ajoutez cette ligne pour valider la prop
-    OpenSidebar: PropTypes.func.isRequired,
+    openSidebarToggle: PropTypes.bool, // Ajoutez cette ligne pour valider la prop
+    OpenSidebar: PropTypes.func,
   };
 export default Sidebar

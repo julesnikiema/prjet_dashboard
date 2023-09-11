@@ -16,7 +16,7 @@ import Parametres from "./pages/Parametres";
 import Compte from './pages/Compte';
 import Utilisateurs from './pages/utilisateurs/Utilisateurs';
 import TaskManager from "./pages/projets/TaskManager";
-import Task from "./pages/projets/Task";
+import EditTask from "./Composants/EditTask";
 import TaskItem from "./pages/projets/TaskItem";
 
 
@@ -72,10 +72,10 @@ const router = createBrowserRouter([
     ],
   },
   
-  // {
-  //   path: "/tasks",
-  //   element: <Task />,
-  // },
+  {
+   path: "/edittasks",
+  element: <EditTask />,
+  },
   {
     path: "/tasks",
     element: <TaskItem />,

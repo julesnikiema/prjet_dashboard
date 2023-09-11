@@ -8,8 +8,34 @@ import
  import 
  { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
+ import { useState, useEffect } from 'react';
+ import { db } from '../firebase'; // Importez la configuration Firebase de votre projet
+import { collection, query, where, getDocs } from 'firebase/firestore';
+
 
 function Home() {
+
+  const [taskCount, setTaskCount] = useState(0); // État local pour stocker le nombre de tâches
+
+  useEffect(() => {
+    const fetchTaskCount = async () => {
+      try {
+        const tasksRef = collection(db, 'tasks');
+        const q = query(
+          tasksRef,
+          where('etat', 'not-in', ['TERMINE', 'DESACTIVED']) // Excluez les états "TERMINE" et "DESACTIVED"
+        );
+        const querySnapshot = await getDocs(q);
+
+        // Mettez à jour l'état local avec le nombre de tâches correspondantes
+        setTaskCount(querySnapshot.size);
+      } catch (error) {
+        console.error('Erreur lors de la récupération du nombre de tâches : ', error);
+      }
+    };
+
+    fetchTaskCount();
+  }, []);
 
     const data = [
         {
@@ -69,7 +95,7 @@ function Home() {
                     <h3>Projets en cours </h3>
                     <BsFillClipboard2DataFill className='card_icon'/>
                 </div>
-                <h1>5</h1>
+               <h1>{taskCount}</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
