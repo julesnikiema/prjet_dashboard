@@ -26,10 +26,6 @@ import { useNavigate } from 'react-router-dom';
       setTask({ ...task, [name]: value });
     };
   
-    const handleUpdateEtat = (nouvelEtat) => {
-      setTask({ ...task, etat: nouvelEtat });
-    };
-  
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
@@ -49,103 +45,77 @@ import { useNavigate } from 'react-router-dom';
     };
   
     return (
-    <div className='grid-container' >
-      <Header  />
+      <div className='grid-container'>
+      <Header />
       <Sidebar />
       <div className="task-manager">
-      
+       
+          <form className='container' onSubmit={handleSubmit}>
   
+                    <input
+                    type="text"
+                    name="client"
+                    placeholder="Client"
+                    value={task.client}
+                    onChange={handleChange}
+                  />
 
-      <div className="form-container">
-        <h2>Ajouter une tâche</h2>
-        <form onSubmit={handleSubmit}>
-        
-      
 
-  <div className="form-group">
+                <input
+                  type="text"
+                  name="nomProjet"
+                  placeholder="Nom du projet"
+                  value={task.nomProjet}
+                  onChange={handleChange} // Ajoutez cet événement onChange
+                />
+             
 
-  <label>Client :</label>
-      <input
-      type="text"
-      name="client"
-      placeholder="Client"
-      value={task.client}
-      onChange={handleChange}
-    />
-    </div>
-  <div className="form-group">
+                    <select
+                      name="serviceAttribue"
+                      value={task.serviceAttribue}
+                      onChange={handleChange}
+                    >
+                      <option value="">Sélectionnez un service</option>
+                      <option value="CAT">CAT </option>
+                      <option value="DCM">DCM</option>
+                      <option value="DEI">DEI </option>
+                      <option value="DEST">DEST</option>
+                      <option value="DFPTIC"> DFPTIC </option>
+                      <option value="DFC">DFC </option>
+                      <option value="DIG">DIG</option>
+                      <option value="DSA">DSA </option>
+                      <option value="DRH">DRH</option>
+                      <option value="PRM">DIG</option>
+                      <option value="SCMRP">SCMRP </option>
+                    
+                    </select>
+                                    
+                    
+                      <select
+                        name="serviceAttribue"
+                        value={task.serviceAttribue}
+                        onChange={handleChange}
+                      >
+                      <option value="">Sélectionnez un etat </option>
+                        <option value="A">A</option>
+                      </select>
+                      
+                            <textarea
+                              name="description"
+                              placeholder="Description"
+                              value={task.description}
+                              onChange={handleChange}
+                              rows={4} // Vous pouvez ajuster le nombre de lignes en fonction de vos besoins
+                              cols={50} // Vous pouvez ajuster le nombre de colonnes en fonction de vos besoins
+                              maxLength={500} // Limitez le nombre maximal de caractères à 500
+                            />
+                    <div className="button-container">
+                      <button type="submit">Ajouter la tâche</button>
+                    </div>
+          </form>
 
-    <label>Nom du projet :</label>
-    <input
-      type="text"
-      name="nomProjet"
-      placeholder="Nom du projet"
-      value={task.nomProjet}
-      onChange={handleChange} // Ajoutez cet événement onChange
-
-      
-    />
-  </div>
-  <div className="form-group">
-  <label>Description :</label>
-  <textarea
-    name="description"
-    placeholder="Description"
-    value={task.description}
-    onChange={handleChange}
-    rows={4} // Vous pouvez ajuster le nombre de lignes en fonction de vos besoins
-    cols={50} // Vous pouvez ajuster le nombre de colonnes en fonction de vos besoins
-    maxLength={500} // Limitez le nombre maximal de caractères à 500
-  />
-</div>
-
-  <div className="form-group">
-    <label>Service attribué :</label>
-    <select
-      name="serviceAttribue"
-      value={task.serviceAttribue}
-      onChange={handleChange}
-    >
-      <option value="">Sélectionnez un service</option>
-      <option value="CAT">CAT </option>
-      <option value="DCM">DCM</option>
-      <option value="DEI">DEI </option>
-      <option value="DEST">DEST</option>
-      <option value="DFPTIC"> DFPTIC </option>
-      <option value="DFC">DFC </option>
-      <option value="DIG">DIG</option>
-      <option value="DSA">DSA </option>
-      <option value="DRH">DRH</option>
-      <option value="PRM">DIG</option>
-      <option value="SCMRP">SCMRP </option>
-    
-    </select>
-  </div>
-  <div className="form-group">
-    <label>État :</label>
-    <select
-      name="serviceAttribue"
-      value={task.serviceAttribue}
-      onChange={handleChange}
-    >
-    <option value="">Sélectionnez un etat </option>
-      <option value="A">A</option>
-    </select>
-    
-  </div>
-  <div className="button-container">
-    <button type="submit">Ajouter la tâche</button>
-  </div>
-</form>
-        <div>
-          <h2>Mettre à jour L état</h2>
-          <button onClick={() => handleUpdateEtat('A')}>A</button>
-          <button onClick={() => handleUpdateEtat('B')}>B</button>
-          <button onClick={() => handleUpdateEtat('C')}>C</button>
+           </div>
         </div>
-      </div>
-      </div>
-      </div>
     );
   }
   

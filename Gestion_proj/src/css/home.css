@@ -29,14 +29,10 @@ body {
   
   .grid-container {
     display: grid;
-    grid-template-columns: 260px 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 3fr;
-    grid-template-areas:
-      'sidebar header header header'
-      'sidebar main main main';
+    grid-template-columns: 250px 1fr; /* Barre latérale de 250px et le reste de l'espace disponible */
+    grid-gap: 20px;
     height: 100vh;
   }
-  
   
   
  
@@ -89,3 +85,16 @@ body {
   }
 
   
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

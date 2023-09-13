@@ -3,7 +3,8 @@ import  { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { collection, getDocs, } from 'firebase/firestore';
 import EditTask from '../../Composants/EditTask';
-
+import Header from '../../Composants/Header';
+import Sidebar from '../../Composants/Sidebar';
 
 function TaskItem() {
   const [tasks, setTasks] = useState([]);
@@ -49,23 +50,48 @@ function TaskItem() {
   };
 
   return (
+
+<div className='grid-container'>
+  <Header />
+  <Sidebar />
+
+
     <div>
-      <h2>Liste des tâches</h2>
-      {tasks.map((task) => (
-        <div key={task.id}>
-          <h3>Tâche {task.id}</h3>
-          <p>Client: {task.client}</p>
-          <p>Nom du projet: {task.nomProjet}</p>
-          <p>Description: {task.description}</p>
-          <p>Service attribué: {task.serviceAttribue}</p>
-          <p>État: {task.etat}</p>
-          <p>Date de création: {task.dateEnregistrement?.toString()}</p>
-          <button onClick={() => handleEditClick(task)}>Modifier</button>
-        </div>
-      ))}
+      <h2>Liste des Projets</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Client</th>
+            <th>Nom du projet</th>
+            <th>Description</th>
+            <th>Service attribué</th>
+            <th>État</th>
+            <th>Date de création</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map((task) => (
+            <tr key={task.id}>
+              <td>{task.id}</td>
+              <td>{task.client}</td>
+              <td>{task.nomProjet}</td>
+              <td>{task.description}</td>
+              <td>{task.serviceAttribue}</td>
+              <td>{task.etat}</td>
+              <td>{task.dateEnregistrement?.toString()}</td>
+              <td>
+                <button onClick={() => handleEditClick(task)}>Modifier</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       {editingTask && (
         <EditTask task={editingTask} onUpdate={handleUpdate} />
       )}
+    </div>
     </div>
   );
 }
