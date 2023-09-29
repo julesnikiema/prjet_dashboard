@@ -2,6 +2,7 @@
 import  { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { collection, getDocs, } from 'firebase/firestore';
+
 import EditTask from '../../Composants/EditTask';
 import Header from '../../Composants/Header';
 import Sidebar from '../../Composants/Sidebar';
@@ -61,7 +62,6 @@ function TaskItem() {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Client</th>
             <th>Nom du projet</th>
             <th>Description</th>
@@ -74,7 +74,6 @@ function TaskItem() {
         <tbody>
           {tasks.map((task) => (
             <tr key={task.id}>
-              <td>{task.id}</td>
               <td>{task.client}</td>
               <td>{task.nomProjet}</td>
               <td>{task.description}</td>

@@ -5,7 +5,7 @@ import HeaderDeroulant from './HeaderDeroulant';
 import { useNavigate } from 'react-router-dom';
 import {BsFillBellFill, BsPersonCircle, BsSearch, BsJustify} from 'react-icons/bs'
 
-function Header({OpenSidebar}) {
+function Header({ OpenSidebar, projectAdded, setProjectAdded }){
 
   const currentUser = UtilisateurConnected();
   const [menuVisible, setMenuVisible] = useState(false);
@@ -27,9 +27,9 @@ function Header({OpenSidebar}) {
         <div className='header-left'>
             <BsSearch  className='icon'/>
         </div>
-        <div className='header-right'>
-            <BsFillBellFill className='icon'/>
-        </div>
+        <div className='header-right' onClick={() => setProjectAdded(false)}>
+  <BsFillBellFill className={`icon ${projectAdded ? 'blink' : ''}`} />
+</div>
         <div className="header-right">
         <div className="compte-icon" onClick={handleMenuClick}>
           <BsPersonCircle className="icon" />
@@ -45,5 +45,7 @@ function Header({OpenSidebar}) {
 // Validez la prop OpenSidebar en utilisant PropTypes
 Header.propTypes = {
   OpenSidebar: PropTypes.func, // Remplacez 'func' par le type approprié si nécessaire
+  projectAdded: PropTypes.bool,
+  setProjectAdded: PropTypes.func,
 };
 export default Header

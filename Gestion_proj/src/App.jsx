@@ -1,8 +1,6 @@
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import { useState } from 'react'
-// import { auth } from "./firebase";
-// import { useEffect } from 'react';
-// import { onAuthStateChanged } from "firebase/auth"; // impo onAuthStateChanged est correctement importé
+import IsAdmin from "./Composants/IsAdmin";
 
 
 import './css/App.css'
@@ -18,13 +16,7 @@ import Utilisateurs from './pages/utilisateurs/Utilisateurs';
 import TaskManager from "./pages/projets/TaskManager";
 import EditTask from "./Composants/EditTask";
 import TaskItem from "./pages/projets/TaskItem";
-
-
-// Composant de gardien de route pour les routes protégées
-// const currntUser = false;
-// const RequireAuth = ({children})=> {
-//   return currentUser ? children : <Navigate to ="/login" />
-// };
+// import AdminRoutesGuard from "./AdminRoutesGuard";
 
  /*
 Définition du composant DashBoard :
@@ -62,6 +54,10 @@ const router = createBrowserRouter([
     element: <SignIn />,
   },
   {
+    path: "/isadmin",
+    element: <IsAdmin />,
+  },
+  {
     path: "/",
     element: < DashBoard />,
     children: [
@@ -71,7 +67,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  
+ 
   {
    path: "/edittasks",
   element: <EditTask />,
@@ -94,7 +90,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/Utilisateurs",
-    element: <Utilisateurs />,
+    element:  <Utilisateurs /> ,
   },
   {
     path: "/Compte",

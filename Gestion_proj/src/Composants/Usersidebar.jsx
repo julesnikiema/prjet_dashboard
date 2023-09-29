@@ -2,7 +2,7 @@ import logoanptic from '../assets/logoanptic.png'
 import PropTypes from 'prop-types';
 
 import 
-{ BsGrid1X2Fill, BsFillCollectionFill, BsPeopleFill, 
+{ BsGrid1X2Fill, BsFillCollectionFill, 
     BsPersonCircle, BsFillGearFill}
  from 'react-icons/bs'
 
@@ -34,11 +34,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                     <BsFillCollectionFill className='icon'/>  Projet
                 </a>
             </li>
-            <li className='sidebar-list-item'>
-                <a href="/Utilisateurs">
-                    <BsPeopleFill className='icon'/> Utilisateurs
-                </a>
-            </li>
+         
             <li className='sidebar-list-item'>
                 <a href="/Compte">
                     <BsPersonCircle className='icon'/> Compte
