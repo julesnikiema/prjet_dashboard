@@ -1,55 +1,84 @@
 
-/* Style pour l'en-tête et la barre latérale */
-.grid-container {
+
+.task-form {
+  width: 100%; /* Assurez-vous que le formulaire occupe toute la largeur de son conteneur */
+  padding: 100px;
+  margin-right: 350px;
   display: grid;
-  grid-template-columns: 250px 1fr; /* Barre latérale de 250px et le reste de l'espace disponible */
-  grid-gap: 20px;
-  height: 100vh;
-}
-
-/* Style pour l'en-tête et la barre latérale */
-.task-manager {
-  padding: 20px;
-}
-
-/* Style pour le formulaire */
-.container {
-  background-color: #fff;
-  padding: 20px;
+  grid-template-columns: repeat(2, 48%); /* Ajusté pour donner plus d'espace entre les colonnes */
+  gap: 4%; /* Espace ajusté */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  grid-column: 2 / span 1; /* Le formulaire occupe la deuxième colonne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style pour les champs de formulaire */
+
+.form-section {
+  display: flex;
+  align-items: center;
+  background-color: #fdfdff;
+  padding: 10px 20px; /* Ajout de padding pour l'espacement */
+  margin-bottom: 10px; /* Ajout d'une marge pour la séparation entre les sections */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre subtile pour la profondeur */
+}
+
+
+.icon-container {
+  width: 200px; /* Largeur du conteneur d'icônes */
+  height: 100px;
+  margin-right: 10px;
+  /* Vous pouvez définir une couleur de fond par défaut pour les tests, retirez-la plus tard */
+  background-color: #f0e8e8;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 input[type="text"],
-select,
 textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 0.5em;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
+  transition: border-color 0.3s;
 }
 
-/* Style pour le bouton */
+select {
+  width: 150%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.button-container {
+  grid-column: span 2; /* Le bouton s'étendra sur les deux colonnes */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 button {
   background-color: #007BFF;
   color: #fff;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* Style pour le bouton au survol */
 button:hover {
   background-color: #0056b3;
-}
-
-/* Style pour les options du sélecteur */
-option {
-  font-size: 16px;
 }

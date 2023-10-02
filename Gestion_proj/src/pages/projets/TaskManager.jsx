@@ -11,6 +11,10 @@ import Sidebar from '../../Composants/Sidebar';
 
 // Imports de styles
 import 'react-toastify/dist/ReactToastify.css';
+import {BsFillPersonPlusFill} from 'react-icons/bs' 
+import {GrServices, GrStatusInfo} from 'react-icons/gr'
+import {MdDescription} from 'react-icons/md'  
+import {BiRename} from 'react-icons/bi' 
 
 function TaskManager() {
   const navigate = useNavigate();
@@ -51,28 +55,39 @@ function TaskManager() {
       <Sidebar />
       <div className="task-manager">
        
-          <form className='container' onSubmit={handleSubmit}>
+      <form className='task-form' onSubmit={handleSubmit}>
   
-                    <input
-                    type="text"
-                    name="client"
-                    placeholder="Client"
-                    value={task.client}
-                    onChange={handleChange}
-                  />
+  <div className="form-section">
+    <div className="icon-container">
+   < BsFillPersonPlusFill />
+        </div>
+    <input
+      type="text"
+      name="client"
+      placeholder="Client"
+      value={task.client}
+      onChange={handleChange}
+    />
+  </div>
 
+  <div className="form-section">
+    <div className="icon-container">
+    <BiRename/>    </div>
+    <input
+      type="text"
+      name="nomProjet"
+      placeholder="Nom du projet"
+      value={task.nomProjet}
+      onChange={handleChange}
+    />
+  </div>
 
-                <input
-                  type="text"
-                  name="nomProjet"
-                  placeholder="Nom du projet"
-                  value={task.nomProjet}
-                  onChange={handleChange} // Ajoutez cet événement onChange
-                />
-             
-
-                    <select name="serviceAttribue" value={task.serviceAttribue} onChange={handleChange}>
-                      <option value="">Sélectionnez un service</option>
+  <div className="form-section">
+    <div className="icon-container">
+    <GrServices/>   
+     </div>
+    <select name="serviceAttribue" value={task.serviceAttribue} onChange={handleChange}>
+      <option value="">Sélectionnez un service</option>
                       <option value="CAT">CAT </option>
                       <option value="DCM">DCM</option>
                       <option value="DEI">DEI </option>
@@ -83,33 +98,36 @@ function TaskManager() {
                       <option value="DSA">DSA </option>
                       <option value="DRH">DRH</option>
                       <option value="PRM">DIG</option>
-                      <option value="SCMRP">SCMRP </option>
-                    
-                    </select>
-                                    
-                    
-                      <select
-                        name="EtatDuProjet"
-                        value={task.etat}
-                        onChange={handleChange}
-                      >
-                      <option value="">Sélectionnez un etat </option>
-                        <option value="A">A</option>
-                      </select>
-                      
-                            <textarea
-                              name="description"
-                              placeholder="Description"
-                              value={task.description}
-                              onChange={handleChange}
-                              rows={4} // Vous pouvez ajuster le nombre de lignes en fonction de vos besoins
-                              cols={50} // Vous pouvez ajuster le nombre de colonnes en fonction de vos besoins
-                              maxLength={500} // Limitez le nombre maximal de caractères à 500
-                            />
-                    <div className="button-container">
-                      <button type="submit">Ajouter la tâche</button>
-                    </div>
-          </form>
+                      <option value="SCMRP">SCMRP </option>    </select>
+  </div>
+  
+  <div className="form-section">
+    <div className="icon-container">
+< GrStatusInfo/> 
+   </div>
+    <select name="EtatDuProjet" value={task.etat} onChange={handleChange}>
+      <option value="">Sélectionnez un etat</option>
+    </select>
+  </div>
+
+  <div className="form-section">
+    <div className="icon-container">
+    <MdDescription/>    </div>
+    <textarea
+      name="description"
+      placeholder="Description"
+      value={task.description}
+      onChange={handleChange}
+      rows={4}
+    />
+  </div>
+
+  <div className="button-container">
+    <button type="submit">Ajouter la tâche</button>
+  </div>
+
+</form>
+
           <ToastContainer position="top-right" autoClose={30000} />
            </div>
            
