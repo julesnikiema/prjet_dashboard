@@ -1,6 +1,5 @@
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import { useState } from 'react'
-import IsAdmin from "./Composants/IsAdmin";
 
 
 import './css/App.css'
@@ -50,19 +49,16 @@ L'itinéraire configuré avec le chemin "*" (tous les chemins qui n'ont pas ét�
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <SignIn />,
   },
+ 
   {
-    path: "/isadmin",
-    element: <IsAdmin />,
-  },
-  {
-    path: "/",
+    path: "/userpanel",
     element: < DashBoard />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
     ],
@@ -76,10 +72,7 @@ const router = createBrowserRouter([
     path: "/tasks",
     element: <TaskItem />,
   },
-  {
-    path: "/login",
-    element: <SignIn  />,
-  },
+ 
   {
     path: "/register",
     element: <SignUp />,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { db } from "../../firebase"; // Assurez-vous d'importer votre instance Firestore
 import { collection, getDocs } from "firebase/firestore";
 import Header from '../../Composants/Header';

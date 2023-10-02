@@ -42,7 +42,7 @@ const SignUp = () => {
 
       console.log("Utilisateur enregistré avec succès dans Firestore.");
 
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }

@@ -22,7 +22,7 @@ const SignIn = () => {
   
 
         // Rediriger vers le tableau de bord après une connexion réussie
-        navigate("/"); // Utiliser useNavigate pour rediriger vers "/"
+        navigate("/userpanel"); // Utiliser useNavigate pour rediriger vers "/"
       })
       .catch((error) => {
         console.log(error);

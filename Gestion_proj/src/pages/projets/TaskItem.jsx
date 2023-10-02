@@ -10,6 +10,8 @@ import Sidebar from '../../Composants/Sidebar';
 function TaskItem() {
   const [tasks, setTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Nouvel état pour la visibilité de la modale
+
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -41,6 +43,7 @@ function TaskItem() {
 
   const handleEditClick = (taskToEdit) => {
     setEditingTask(taskToEdit);
+    setIsModalOpen(true); // Ouvrir la modale
   };
 
   const handleUpdate = (updatedTask) => {
@@ -50,6 +53,11 @@ function TaskItem() {
     );
   };
 
+     // Fonction pour fermer la modale
+     const closeModal = () => {
+      setIsModalOpen(false);
+      setEditingTask(null);
+  };
   return (
 
 <div className='grid-container'>
@@ -87,12 +95,19 @@ function TaskItem() {
           ))}
         </tbody>
       </table>
-      {editingTask && (
-        <EditTask task={editingTask} onUpdate={handleUpdate} />
-      )}
-    </div>
-    </div>
-  );
+      {isModalOpen && (
+                    <div className="modal">
+                        <div className="modal-content">
+                            <span className="close-btn" onClick={closeModal}>&times;</span>
+                            <EditTask task={editingTask} onUpdate={(updatedTask) => {
+                                handleUpdate(updatedTask);
+                                closeModal();
+                            }} />
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
 }
-
 export default TaskItem;
