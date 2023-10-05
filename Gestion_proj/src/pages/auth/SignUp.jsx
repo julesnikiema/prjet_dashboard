@@ -36,7 +36,7 @@ const SignUp = () => {
         phone,
         email,
         agentService,
-        role: "utilisateur",
+        role: "agent",
         createdAt: serverTimestamp(),
       });
 
@@ -84,8 +84,6 @@ const SignUp = () => {
           <option value="Service par défaut">Sélectionnez un service</option>
           <option value="DG">Direction Generale</option>
           <option value="SG">Secratariat General</option>
-          <option value="SP">SP</option>
-          <option value="CT">Conseiller Technique</option>
           <option value="DCM">DCM</option>
           <option value="DEI">DEI</option>
           <option value="DEST">DEST</option>

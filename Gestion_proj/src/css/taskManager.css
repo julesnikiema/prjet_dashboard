@@ -24,8 +24,8 @@
 
 
 .icon-container {
-  width: 200px; /* Largeur du conteneur d'icônes */
-  height: 100px;
+  width: 100px; /* Largeur du conteneur d'icônes */
+  height: 50px;
   margin-right: 10px;
   /* Vous pouvez définir une couleur de fond par défaut pour les tests, retirez-la plus tard */
   background-color: #f0e8e8;
@@ -37,8 +37,7 @@
 
 input[type="text"],
 textarea {
-  width: 100%;
-  padding: 0.5em;
+  width: 50%;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;

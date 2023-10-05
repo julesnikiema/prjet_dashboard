@@ -19,7 +19,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
 
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
-                <a href="/">
+                <a href="/userpanel">
                     <BsGrid1X2Fill className='icon'/> Tableau de bord 
                 </a>
             </li>

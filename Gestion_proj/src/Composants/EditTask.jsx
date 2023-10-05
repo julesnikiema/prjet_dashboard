@@ -18,7 +18,7 @@ function EditTask({ task, onUpdate }) {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const taskRef = doc(db, 'tasks', task.id); // Utilisez task.id au lieu de taskId
+      const taskRef = doc(db, 'tasks', task.id); // Utilisez task.id 
       await updateDoc(taskRef, editedTask);
       onUpdate(editedTask);
     } catch (error) {
@@ -82,8 +82,8 @@ function EditTask({ task, onUpdate }) {
         <div className="form-group">
           <label>État :</label>
           <select
-            name="serviceAttribue"
-            value={editedTask.serviceAttribue || ''}
+            name="EtatDuProjet"
+            value={editedTask.etat || ''} 
             onChange={handleInputChange}
           >
             <option value="">Sélectionnez un etat </option>

@@ -11,10 +11,11 @@ import Sidebar from '../../Composants/Sidebar';
 
 // Imports de styles
 import 'react-toastify/dist/ReactToastify.css';
-import {BsFillPersonPlusFill} from 'react-icons/bs' 
+import {BsFillPersonPlusFill , BsFillTelephoneFill} from 'react-icons/bs' 
 import {GrServices, GrStatusInfo} from 'react-icons/gr'
 import {MdDescription} from 'react-icons/md'  
 import {BiRename} from 'react-icons/bi' 
+import {FaMailBulk} from 'react-icons/fa' 
 
 function TaskManager() {
   const navigate = useNavigate();
@@ -25,6 +26,9 @@ function TaskManager() {
     description: '',
     serviceAttribue: '',
     etat: 'A',
+    mailclient: '',
+
+telephoneclient: ''
   });
 
   const handleChange = (e) => {
@@ -69,6 +73,18 @@ function TaskManager() {
       onChange={handleChange}
     />
   </div>
+  <div className="form-section">
+  <div className="icon-container">
+<FaMailBulk/>    
+</div>
+<input
+      type="email"
+      name="mailclient"
+      placeholder="Email du client"
+      value={task.mailclient}
+      onChange={handleChange}
+    />
+</div>
 
   <div className="form-section">
     <div className="icon-container">
@@ -81,6 +97,18 @@ function TaskManager() {
       onChange={handleChange}
     />
   </div>
+  <div className="form-section">
+    <div className="icon-container">
+        <BsFillTelephoneFill/>
+    </div>
+    <input
+      type="tel"
+      name="telephoneclient"
+      placeholder="Téléphone du client"
+      value={task.telephoneclient}
+      onChange={handleChange}
+    />
+</div>
 
   <div className="form-section">
     <div className="icon-container">
